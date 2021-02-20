@@ -121,7 +121,7 @@ if __name__ == '__main__':
     # Updating/adding new therapists
     for row in data['records']:
         q = session.query(MainData).filter(MainData.person_id == f'{row["id"]}')
-        print(q.one().person_id)
+
         if session.query(literal(True)).filter(q.exists()).scalar():
             # Updating current row in main_data_table
             q.one().person_name = row['fields']['Имя']
